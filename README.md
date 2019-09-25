@@ -2,29 +2,32 @@
 ## En opgave i Strategy Pattern
 
 ### Opgave 1
-KroneTaxa skal have udviklet et nyt stykke software til at beregne prisen på en taxa tur, og har bedt dig om hjælp. De har allerede et gammelt system til at vise data'en og interagere med systemet - altså skal de bare have hjælp til en lille del af systemet.
-
-Deres prismodel er rimelig simpel: 8,50 kr/km + 6,25 kr/min + 39 kr
-
-Implementér (dvs. færdiggør, udfyld de tomme funktioner) klassen Taxameter.js, herunder KroneTaxas prismodel.
+Jeg lavede en pris beregner i selve taxameter.js filen. 
 
 ### Opgave 2
-KroneTaxa vil også gerne bruge systemet til deres store vogne. Her er prisen: 12 kr/km + 6,67 kr/min + 69 kr.
-
-Lav filerne krone-taxa-stor-vogn.js og krone-taxa-stor-vogn.html, og lav Taxameter.js om så den kan genbruges til både normale og store vogne. (Hint: Strategy Pattern. )
+Jeg kopirede krone-taxa.html og krone-taxa.js og ændrede der hvor der stod kronetaxa til kronetaxastor. Så lavede jeg et pricestrategy i kronetaxa.js og kronetaxastor.js. Den blev så taget og brugt i taxameteret til at sende prise vidre til start.js
 
 
 ### Opgave 3
-KroneTaxas konkurrent CityBilen vil gerne købe dit system. De bruger samme brugergrænseflade, så det er lige til at sætte i deres biler. Dog er deres priser en smule anderledes: 4,50 kr pr. påbegyndt km + 7 kr pr. minut, og der er en minimumspris på 75 kr.
+Jeg kopirede krone-taxa.html og krone-taxa.js og lavede dem om til citybilen. Derefter ændrede jeg pristrategeyen i js filen til at starte med en variable som samlede pristrategeyen fra før med de nye priser til en variable som hed price. så lavede jeg et if statment:
 
-Lav filerne city-bilen.js og city-bilen.html, og lav Taxameter.js om så den kan genbruges til alle 3 systemer.
+if (price < 75){
 
+return 75;
+} else {
+return price
+}
+
+Så hvis price er under 75 vil den altid return 75
 
 ### Opgave 4
-KroneTaxas vil gerne være mere konkurrencedygtige på korte ture med normale vogn, og vil gerne ændre deres km pris til:
-5 kr for den første km, derefter 9 kr/km.
+Ændrede pricestategeyen i kronetaxa til at hver del af betalingen blev en variable
 
-Lav de nødvendige ændringer i krone-taxa.js
+Var price = ((afstand-1)*9)
+Var priceunder1 = (5*math.min(1, afstand))
+var tid = (tidgaaet*(pris for tid))
+
+return price + priceunder1 + tid
 
 
 ### Bonus opgave 1 (overkommelig)
