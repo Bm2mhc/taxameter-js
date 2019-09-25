@@ -21,16 +21,11 @@ class FakeClock{
     
 }
 
-class kronetaxavogn{
+class kronetaxastorvogn{
     calulatePrice(afstand, tidgaaet){
-        var price = (9*(afstand-1));
-        var under1km = (5*Math.min(1, afstand));
-        var tidpris = (6.25*tidgaaet + 39);
-        
-
-        return price + under1km + tidpris;
+        return (12*(afstand)) + (6.67*tidgaaet + 69)
     }
 }
 
 var clock = new RealClock();
-start(new Taxameter(clock,new kronetaxavogn()));
+start(new Taxameter(clock,new kronetaxastorvogn()));
